@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Border · Café, brunch, vermú y picadas en Villa Devoto</title>
+<meta name="description" content="Café de especialidad, brunch, vermú, picadas y vinos naturales en la esquina de Sanabria y Habana, Villa Devoto. Carta de día, de noche y sin TACC, pedidos para llevar y reservas.">
+<meta name="theme-color" content="#141514">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Border · Café, brunch, vermú y picadas">
+<meta property="og:description" content="La esquina más linda de Devoto: carta de día, de noche y sin TACC, pedidos para llevar y mesas.">
+<meta property="og:url" content="https://border-devoto.vercel.app/">
+<meta property="og:image" content="https://border-devoto.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://border-devoto.vercel.app/img/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=Poppins:wght@400;500;600&family=Shantell+Sans:wght@600;800&display=swap">
+<link rel="preload" as="image" href="img/foto/cartel-800.webp" imagesrcset="img/foto/cartel-800.webp 800w, img/foto/cartel-1400.webp 1400w" imagesizes="(min-width: 1100px) 40vw, 100vw" media="(max-width: 1099px)">
+<link rel="stylesheet" href="kit/kit.css?v=1">
+<link rel="stylesheet" href="css/style.css?v=1">
+<script>
+  (function () {
+    var d = document.documentElement, q = new URLSearchParams(location.search).get('momento');
+    var h = Number(new Intl.DateTimeFormat('en-US', { timeZone: 'America/Argentina/Buenos_Aires', hour: 'numeric', hourCycle: 'h23' }).format(new Date()));
+    d.dataset.momento = (q === 'dia' || q === 'noche') ? q : ((h >= 19 || h < 6) ? 'noche' : 'dia');
+    d.classList.add('js');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('con-intro');
+  })();
+</script>
+</head>
+<body>
+<a class="saltar" href="#carta">Ir a la carta</a>
+
+<!-- INTRO: se prende el cartel -->
+<div class="intro" aria-hidden="true">
+  <div class="intro__luz">
+    <span class="intro__letras"><span style="--i:0">B</span><span style="--i:1">O</span><span style="--i:2" class="parpadea">R</span><span style="--i:3">D</span><span style="--i:4">E</span><span style="--i:5">R</span></span>
+    <span class="intro__sticker"><img src="img/logo-marcador.svg" alt="" width="1000" height="475"></span>
+  </div>
+</div>
+
+<header class="barra" id="barra">
+  <a class="barra__logo" href="#top" aria-label="Border, inicio">BORDER</a>
+  <div class="barra__acciones">
+    <button class="momento" type="button" id="momento" aria-label="Cambiar entre Border de día y de noche">
+      <span class="momento__op momento__op--dia"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M5.2 18.8l1.6-1.6M17.2 6.8l1.6-1.6"/></svg><span>Día</span></span>
+      <span class="momento__op momento__op--noche"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg><span>Noche</span></span>
+    </button>
+    <a class="barra__cta solo-desk" href="#reservar" data-kit-open="reservas">Guardame mesa</a>
+    <button class="hamburguesa" type="button" id="abrirMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Secciones" hidden>
+  <ul>
+    <li><a href="#carta" style="--d:0">Carta</a></li>
+    <li><a href="#garra" style="--d:1">La garra de vinos</a></li>
+    <li><a href="#agenda" style="--d:2">Agenda</a></li>
+    <li><a href="#ustedes" style="--d:3">Ustedes</a></li>
+    <li><a href="#esquina" style="--d:4">Cómo llegar</a></li>
+  </ul>
+  <div class="menu__pie" style="--d:5">
+    <a class="btn btn--luz" href="#reservar" data-kit-open="reservas">Guardame mesa</a>
+    <a class="btn btn--linea" href="https://instagram.com/borderdevoto" target="_blank" rel="noopener">@borderdevoto</a>
+  </div>
+</nav>
+
+<main id="top">
+  <!-- HERO A: el cartel -->
+  <section class="hero" aria-labelledby="hero-t">
+    <div class="hero__foto">
+      <picture>
+        <source media="(min-width: 1100px)" srcset="img/foto/cartel-pared-800.webp 800w, img/foto/cartel-pared-1440.webp 1440w" sizes="44vw">
+        <img src="img/foto/cartel-800.webp" srcset="img/foto/cartel-800.webp 800w, img/foto/cartel-1400.webp 1400w" sizes="100vw" width="800" height="1066" alt="Las letras de luz de Border sobre la pared de piedra, con gente en la vereda" fetchpriority="high">
+      </picture>
+      <span class="hero__sticker hero__sticker--desk"><img src="img/logo-marcador.svg" alt="" width="1000" height="475"></span>
+    </div>
+    <div class="hero__texto">
+      <span class="hero__sticker hero__sticker--celu" aria-hidden="true"><img src="img/logo-marcador.svg" alt="" width="1000" height="475"></span>
+      <p class="estado" id="estado"><span class="estado__punto"></span><span class="estado__txt">Sanabria 4302 · Villa Devoto</span></p>
+      <h1 id="hero-t">
+        <span class="si-noche"><span class="renglon"><span>Vermú, picadas</span></span><span class="renglon"><span>y vinos naturales</span></span></span>
+        <span class="si-dia"><span class="renglon"><span>Café de especialidad,</span></span><span class="renglon"><span>brunch y sin TACC</span></span></span>
+      </h1>
+      <p class="hero__bajada">En la esquina de Sanabria y Habana. Entrás por un ratito y te quedás hasta cerrar.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--luz si-noche-flex" href="#reservar" data-kit-open="reservas">Guardame mesa</a>
+        <a class="btn btn--luz si-dia-flex" href="#carta" data-ir-carta="d">Pedí para llevar</a>
+        <a class="btn btn--linea si-noche-flex" href="#carta" data-ir-carta="n">Carta de noche</a>
+        <a class="btn btn--linea si-dia-flex" href="#carta" data-ir-carta="d">Carta de día</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="zigzag zigzag--oscuro" aria-hidden="true"><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path pathLength="1" d="M4 30 L24 8 L36 30 L56 8 L68 30 L88 8 L100 30 L120 8 L132 30 L152 8 L164 30 L184 8 L196 30 L216 8 L228 30 L248 8 L260 30 L280 8 L296 26"/></svg></div>
+
+  <!-- TRES MOMENTOS -->
+  <section class="momentos papel" aria-labelledby="mom-t">
+    <div class="cont">
+      <header class="encabezado aparece">
+        <p class="sobre">De 8 de la mañana a la 1:30</p>
+        <h2 id="mom-t" class="t-marcador">Un lugar, <span class="mesa">todo el día</span></h2>
+      </header>
+      <div class="momentos__grilla">
+        <article class="momento-card aparece">
+          <figure class="revela"><img src="img/foto/momento-cafe-800.webp" srcset="img/foto/momento-cafe-800.webp 800w, img/foto/momento-cafe-1400.webp 1400w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="1000" alt="Flat white con latte art sobre la mesa de madera" loading="lazy" decoding="async"></figure>
+          <div class="momento-card__txt"><span class="hora">8:00</span><h3>Café de especialidad</h3><p>Flat white, filtrados en V60 o Chemex y el ¼ kg para llevarte a casa.</p></div>
+        </article>
+        <article class="momento-card aparece" style="--d:1">
+          <figure class="revela"><img src="img/foto/momento-brunch-800.webp" srcset="img/foto/momento-brunch-800.webp 800w, img/foto/momento-brunch-1400.webp 1400w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="1066" alt="Tostada con palta, huevo poché y cherrys sobre la mesa bordó" loading="lazy" decoding="async"></figure>
+          <div class="momento-card__txt"><span class="hora">Todo el día</span><h3>Brunch, con y sin TACC</h3><p>Una carta sin TACC de verdad: brunch, sándwiches, pizzas y picadas aptas.</p></div>
+        </article>
+        <article class="momento-card aparece" style="--d:2">
+          <figure class="revela"><img src="img/foto/momento-vermu-800.webp" srcset="img/foto/momento-vermu-800.webp 800w, img/foto/momento-vermu-1400.webp 1400w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="1066" alt="Brindis con vino rosado y picada" loading="lazy" decoding="async"></figure>
+          <div class="momento-card__txt"><span class="hora">De noche</span><h3>Vermú, picadas y vinos</h3><p>Vinos naturales, tragos de autor y pizza napolitana hasta la 1:30.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="carta papel cuadriculado" id="carta" aria-labelledby="carta-t">
+    <div class="cont">
+      <header class="encabezado aparece">
+        <p class="sobre">Para mirar o para llevar</p>
+        <h2 id="carta-t" class="t-marcador">La carta</h2>
+        <p class="encabezado__bajada">Día, noche y sin TACC en un solo lugar. Lo que dice <b>para llevar</b> lo pedís acá y lo pasás a buscar.</p>
+      </header>
+
+      <div class="carta__control" id="cartaControl">
+        <div class="modos" role="tablist" aria-label="Qué carta querés ver">
+          <button type="button" role="tab" class="modo" data-modo="d" aria-selected="false">Día</button>
+          <button type="button" role="tab" class="modo" data-modo="n" aria-selected="false">Noche</button>
+          <button type="button" role="tab" class="modo modo--tacc" data-modo="t" aria-selected="false">Sin TACC</button>
+        </div>
+      </div>
+
+      <div class="carta__cuerpo">
+        <div class="carta__seccion" id="cartaSeccion" aria-live="polite">
+          <h3 class="carta__nombre" id="cartaNombre">La carta</h3>
+          <p class="carta__info" id="cartaInfo"></p>
+        </div>
+        <div data-kit="carta" class="carta__kit"></div>
+        <div class="carta__pasos">
+          <button type="button" class="paso paso--ant" id="cartaAnt"><span aria-hidden="true">←</span> <span class="paso__txt"></span></button>
+          <button type="button" class="paso paso--sig" id="cartaSig"><span class="paso__txt"></span> <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="zigzag zigzag--papel" aria-hidden="true"><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path pathLength="1" d="M4 30 L24 8 L36 30 L56 8 L68 30 L88 8 L100 30 L120 8 L132 30 L152 8 L164 30 L184 8 L196 30 L216 8 L228 30 L248 8 L260 30 L280 8 L296 26"/></svg></div>
+
+  <!-- LA GARRA DE VINOS -->
+  <section class="garra" id="garra" aria-labelledby="garra-t">
+    <div class="cont garra__cont">
+      <header class="encabezado encabezado--luz aparece">
+        <p class="sobre">Para elegir el vino de la noche</p>
+        <h2 id="garra-t" class="t-luz">La garra de vinos</h2>
+        <p class="encabezado__bajada">¿No sabés qué vino pedir? Mové la garra con el dedo, tocá <b>Bajar</b> y que decida la máquina.</p>
+      </header>
+
+      <div class="maquina aparece" id="maquina">
+        <div class="maquina__vidrio" id="vidrio" role="application" aria-label="Máquina de garra: arrastrá para mover la garra">
+          <div class="maquina__riel"></div>
+          <div class="garra__carro" id="carro">
+            <div class="garra__cable" id="cable"></div>
+            <div class="garra__mano" id="mano">
+              <svg viewBox="0 0 60 56" aria-hidden="true"><path d="M30 2v10M18 12h24M22 12 12 28l6 18M38 12l10 16-6 18M30 12v14l-4 18M30 26l4 18"/><circle cx="30" cy="12" r="4"/></svg>
+            </div>
+          </div>
+          <div class="botellas" id="botellas"></div>
+          <div class="maquina__vidrio-brillo"></div>
+        </div>
+        <div class="maquina__controles">
+          <button type="button" class="ctrl" id="izq" aria-label="Mover la garra a la izquierda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
+          <button type="button" class="btn btn--luz ctrl-bajar" id="bajar">Bajar</button>
+          <button type="button" class="ctrl" id="der" aria-label="Mover la garra a la derecha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+        </div>
+        <p class="maquina__aviso" id="aviso" aria-live="polite">Arrastrá la garra o usá las flechas.</p>
+      </div>
+
+      <div class="ficha" id="ficha" hidden>
+        <div class="ficha__foto"><img id="fichaFoto" src="img/carta/vinos.webp" width="600" height="600" alt="" loading="lazy"></div>
+        <div class="ficha__txt">
+          <p class="sobre">Te tocó</p>
+          <h3 id="fichaNombre">El Zorrito naranjo</h3>
+          <p id="fichaDesc">Botella · vino natural</p>
+          <p class="ficha__precio" id="fichaPrecio">$28.000</p>
+          <div class="ficha__ctas">
+            <button type="button" class="btn btn--luz" id="fichaReservar">Guardame mesa para esta</button>
+            <button type="button" class="btn btn--linea" id="fichaOtra">Probar otra vez</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="agenda" id="agenda" aria-labelledby="agenda-t">
+    <div class="cont">
+      <header class="encabezado encabezado--luz aparece">
+        <p class="sobre">Lo que pasa en Border</p>
+        <h2 id="agenda-t" class="t-luz">Agenda</h2>
+        <p class="encabezado__bajada">Talleres, tarot y cenas con vino que se llenan en días. Las próximas fechas salen en Instagram: pedí tu lugar por DM y te avisan primero.</p>
+      </header>
+    </div>
+    <div class="fila" id="filaAgenda" tabindex="0" aria-label="Eventos de Border, deslizá para ver más">
+      <article class="ticket aparece">
+        <p class="ticket__dato">Taller creativo · 20:30</p>
+        <h3>Tote Club</h3>
+        <p>Pintás tu propia totebag (o abanico) con guía de @sofiabril.rb y @sonii_lucia. Incluye materiales, picada de fiambres y quesos y un trago.</p>
+        <button type="button" class="btn btn--mesa" data-dm="Hola Border! Quiero ir al próximo Tote Club. ¿Me avisan cuando abran los lugares?">Quiero ir al próximo</button>
+      </article>
+      <article class="ticket aparece" style="--d:1">
+        <p class="ticket__dato">Noche · 20:30</p>
+        <h3>Tarot y Tragos</h3>
+        <p>Cartas, un trago a elección y picada premium, con @pamela_rolla. La energía la ponés vos.</p>
+        <button type="button" class="btn btn--mesa" data-dm="Hola Border! Quiero ir al próximo Tarot y Tragos. ¿Me avisan cuando abran los lugares?">Quiero ir al próximo</button>
+      </article>
+      <article class="ticket aparece" style="--d:2">
+        <p class="ticket__dato">Cena · 21:00</p>
+        <h3>Cena con cata</h3>
+        <p>Menú de 3 pasos y vinos copa por copa con @muydevinos.clubdevir. Sepas o no de vinos.</p>
+        <button type="button" class="btn btn--mesa" data-dm="Hola Border! Quiero ir a la próxima cena con cata de vinos. ¿Me avisan cuando abran los lugares?">Quiero ir a la próxima</button>
+      </article>
+      <article class="ticket aparece" style="--d:3">
+        <p class="ticket__dato">Taller · viernes</p>
+        <h3>Pintura en bastidor</h3>
+        <p>Una excusa para pintar y pasarla bien: algo rico para tomar, algo para picar y los materiales. No hace falta saber.</p>
+        <button type="button" class="btn btn--mesa" data-dm="Hola Border! Quiero ir al próximo taller de pintura en bastidor. ¿Me avisan cuando abran los lugares?">Quiero ir al próximo</button>
+      </article>
+      <article class="ticket ticket--cumple aparece" style="--d:4">
+        <p class="ticket__dato">¿Festejás algo?</p>
+        <h3>Tu cumple en la esquina</h3>
+        <p>Pedí una mesa larga para tu grupo y contanos qué festejan en el comentario.</p>
+        <button type="button" class="btn btn--luz" data-kit-open="reservas">Guardame mesa</button>
+      </article>
+    </div>
+  </section>
+
+  <div class="zigzag zigzag--oscuro" aria-hidden="true"><svg viewBox="0 0 300 40" preserveAspectRatio="none"><path pathLength="1" d="M4 30 L24 8 L36 30 L56 8 L68 30 L88 8 L100 30 L120 8 L132 30 L152 8 L164 30 L184 8 L196 30 L216 8 L228 30 L248 8 L260 30 L280 8 L296 26"/></svg></div>
+
+  <!-- USTEDES -->
+  <section class="ustedes papel" id="ustedes" aria-labelledby="ust-t">
+    <div class="cont ustedes__cont">
+      <header class="encabezado aparece">
+        <p class="sobre">Los de siempre</p>
+        <h2 id="ust-t" class="t-marcador">Ustedes</h2>
+        <p class="encabezado__bajada">Tirá la foto a un costado para ver la que sigue.</p>
+      </header>
+      <div class="mazo aparece" id="mazo" aria-roledescription="mazo de fotos">
+        <figure class="carta-foto"><img src="img/foto/u-sobremesa-800.webp" width="800" height="1066" alt="Sobremesa con copas de vino junto al ventanal" loading="lazy" decoding="async"><figcaption>Sobremesa de domingo</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-picada-800.webp" width="800" height="1000" alt="Amigos compartiendo una picada" loading="lazy" decoding="async"><figcaption>Las picadas funcionan</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-break-800.webp" width="800" height="1066" alt="Café con croissant y la carta de Border" loading="lazy" decoding="async"><figcaption>Break de mitad de semana</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-noche-800.webp" width="800" height="1066" alt="Gente festejando bajo las letras de luz" loading="lazy" decoding="async"><figcaption>3 años de esquina</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-brindis-800.webp" width="800" height="800" alt="Brindis sobre una picada" loading="lazy" decoding="async"><figcaption>Un brindis, siempre</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-flat-800.webp" width="800" height="995" alt="Flat white y croissant" loading="lazy" decoding="async"><figcaption>Flat white + croissant</figcaption></figure>
+        <figure class="carta-foto"><img src="img/foto/u-salon-800.webp" width="800" height="1000" alt="El salón con ventanales y mesas de madera" loading="lazy" decoding="async"><figcaption>El punto de encuentro</figcaption></figure>
+      </div>
+      <div class="mazo__ctrl">
+        <button type="button" class="btn btn--pizarra" id="mazoSig">Siguiente foto</button>
+        <span class="mazo__n" id="mazoN">1 / 7</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA ESQUINA -->
+  <section class="esquina" id="esquina" aria-labelledby="esq-t">
+    <div class="cont esquina__cont">
+      <figure class="esquina__foto revela aparece">
+        <img class="si-noche" src="img/foto/esquina-noche-800.webp" srcset="img/foto/esquina-noche-800.webp 800w, img/foto/esquina-noche-1400.webp 1400w" sizes="(min-width: 900px) 45vw, 100vw" width="800" height="1066" alt="La esquina de Border de noche, llena de gente" loading="lazy" decoding="async">
+        <img class="si-dia" src="img/foto/esquina-dia-800.webp" srcset="img/foto/esquina-dia-800.webp 800w, img/foto/esquina-dia-1400.webp 1400w" sizes="(min-width: 900px) 45vw, 100vw" width="800" height="1066" alt="La esquina de Border de día, con árboles" loading="lazy" decoding="async">
+      </figure>
+      <div class="esquina__txt">
+        <header class="encabezado encabezado--luz aparece">
+          <p class="sobre">Sanabria 4302, esquina Habana</p>
+          <h2 id="esq-t" class="t-luz">La esquina más linda de Devoto</h2>
+        </header>
+        <ul class="chips aparece">
+          <li>Mesitas en la vereda</li><li>Pet friendly</li><li>Carta sin TACC</li><li>Café para llevar</li>
+        </ul>
+        <div class="horarios aparece" id="horarios">
+          <h3>Horarios</h3>
+          <dl>
+            <div data-dia="1"><dt>Lunes</dt><dd>8 a 21</dd></div>
+            <div data-dia="2"><dt>Martes</dt><dd>8 a 21</dd></div>
+            <div data-dia="3" class="cerrado"><dt>Miércoles</dt><dd>Cerrado</dd></div>
+            <div data-dia="4"><dt>Jueves</dt><dd>8 a 0</dd></div>
+            <div data-dia="5"><dt>Viernes</dt><dd>8 a 1:30</dd></div>
+            <div data-dia="6"><dt>Sábado</dt><dd>9 a 1:30</dd></div>
+            <div data-dia="0"><dt>Domingo</dt><dd>9 a 0</dd></div>
+          </dl>
+        </div>
+        <div class="esquina__ctas aparece">
+          <a class="btn btn--luz" href="#reservar" data-kit-open="reservas" id="reservar">Guardame mesa</a>
+          <a class="btn btn--linea" href="https://www.google.com/maps/search/?api=1&query=Border+Sanabria+4302+Villa+Devoto" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="cont pie__cont">
+    <img class="pie__logo" src="img/logo-marcador-claro.svg" alt="Border" width="1000" height="475" loading="lazy">
+    <p class="pie__lema">Café de especialidad · brunch · vermú y picadas · opciones sin TACC y veganas</p>
+    <div class="pie__datos">
+      <p>Sanabria 4302 (esq. Habana), Villa Devoto, CABA</p>
+      <p>Lun y mar 8–21 · mié cerrado · jue 8–0 · vie 8–1:30 · sáb 9–1:30 · dom 9–0</p>
+      <p><a href="https://instagram.com/borderdevoto" target="_blank" rel="noopener">Instagram @borderdevoto</a> · <a href="https://ig.me/m/borderdevoto" target="_blank" rel="noopener">Escribinos por DM</a></p>
+    </div>
+    <p class="credito">Sitio desarrollado por <a href="https://alejomfernandez.com.ar" target="_blank" rel="noopener">Alejo Martín Fernández</a></p>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js?v=1"></script>
+</body>
+</html>

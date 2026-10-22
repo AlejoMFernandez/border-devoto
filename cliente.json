@@ -1,0 +1,1883 @@
+{
+ "$schema": "./docs/cliente.schema.json",
+ "id": "border-devoto",
+ "nombre": "Border",
+ "pais": "AR",
+ "idioma": "es",
+ "modo": "demo",
+ "whatsapp": "https://ig.me/m/borderdevoto",
+ "prefijoPedido": "BD",
+ "supabase": {
+  "url": "",
+  "anonKey": ""
+ },
+ "marca": {
+  "logo": "img/logo-marcador.svg",
+  "logoPanel": "img/logo-marcador-claro.svg",
+  "favicon": "img/favicon.png",
+  "colores": {
+   "fondo": "#F4F0E8",
+   "superficie": "#FFFFFF",
+   "texto": "#141514",
+   "primario": "#2E5153",
+   "sobrePrimario": "#F4F0E8",
+   "acento": "#8A1C1F",
+   "sobreAcento": "#FFFFFF",
+   "borde": "#D8CFBF"
+  },
+  "fuentes": {
+   "titulos": "'Shantell Sans', system-ui, sans-serif",
+   "texto": "'Poppins', system-ui, sans-serif",
+   "googleFonts": "Shantell+Sans:wght@600;800&family=Poppins:wght@400;500;600"
+  },
+  "estilo": {
+   "forma": "redondeada",
+   "radio": "18px",
+   "sombra": "suave",
+   "borde": "1.5px",
+   "mayusculas": false
+  }
+ },
+ "modulos": {
+  "carta": true,
+  "carrito": true,
+  "reservas": true,
+  "admin": true
+ },
+ "horarios": {
+  "lun": [
+   [
+    "08:00",
+    "21:00"
+   ]
+  ],
+  "mar": [
+   [
+    "08:00",
+    "21:00"
+   ]
+  ],
+  "mie": [],
+  "jue": [
+   [
+    "08:00",
+    "00:00"
+   ]
+  ],
+  "vie": [
+   [
+    "08:00",
+    "01:30"
+   ]
+  ],
+  "sab": [
+   [
+    "09:00",
+    "01:30"
+   ]
+  ],
+  "dom": [
+   [
+    "09:00",
+    "00:00"
+   ]
+  ]
+ },
+ "reservas": {
+  "intervaloMin": 30,
+  "duracionMin": 90,
+  "capacidad": 40,
+  "maxPersonas": 10,
+  "anticipacionMin": 60,
+  "diasAdelante": 21,
+  "ultimoTurnoMin": 60,
+  "cerrados": []
+ },
+ "pedidos": {
+  "salidas": [
+   "mercadopago",
+   "whatsapp"
+  ],
+  "tipos": [
+   "retiro"
+  ],
+  "envio": 0,
+  "minimo": 0
+ },
+ "pagos": {
+  "mercadopago": {
+   "endpoint": "https://kit-demos-amf.vercel.app/api/mp-preference",
+   "modo": "sandbox"
+  }
+ },
+ "carta": {
+  "categorias": [
+   {
+    "id": "d-cafe",
+    "nombre": "Día · Café & infusiones"
+   },
+   {
+    "id": "d-te",
+    "nombre": "Día · Té y extras"
+   },
+   {
+    "id": "d-combos",
+    "nombre": "Día · Combos & brunch"
+   },
+   {
+    "id": "d-saladitos",
+    "nombre": "Día · Saladitos"
+   },
+   {
+    "id": "d-sandwiches",
+    "nombre": "Día · Sándwiches"
+   },
+   {
+    "id": "d-almuerzos",
+    "nombre": "Día · Almuerzos"
+   },
+   {
+    "id": "d-dulce",
+    "nombre": "Día · Dulce"
+   },
+   {
+    "id": "d-bebidas",
+    "nombre": "Día · Bebidas"
+   },
+   {
+    "id": "n-platos",
+    "nombre": "Noche · Platos"
+   },
+   {
+    "id": "n-entre-panes",
+    "nombre": "Noche · Entre panes"
+   },
+   {
+    "id": "n-pizzas",
+    "nombre": "Noche · Pizza napolitana"
+   },
+   {
+    "id": "n-picadas",
+    "nombre": "Noche · Picadas"
+   },
+   {
+    "id": "n-vermu",
+    "nombre": "Noche · Vermú"
+   },
+   {
+    "id": "n-vinos",
+    "nombre": "Noche · Vinos"
+   },
+   {
+    "id": "n-tragos",
+    "nombre": "Noche · Tragos"
+   },
+   {
+    "id": "n-cervezas",
+    "nombre": "Noche · Cervezas y sin alcohol"
+   },
+   {
+    "id": "t-cafe",
+    "nombre": "Sin TACC · Café & infusiones"
+   },
+   {
+    "id": "t-combos",
+    "nombre": "Sin TACC · Combos & brunch"
+   },
+   {
+    "id": "t-saladitos",
+    "nombre": "Sin TACC · Saladitos"
+   },
+   {
+    "id": "t-sandwiches",
+    "nombre": "Sin TACC · Sándwiches"
+   },
+   {
+    "id": "t-platos",
+    "nombre": "Sin TACC · Almuerzos y cenas"
+   },
+   {
+    "id": "t-pizzas",
+    "nombre": "Sin TACC · Pizzas"
+   },
+   {
+    "id": "t-picadas",
+    "nombre": "Sin TACC · Picadas"
+   },
+   {
+    "id": "t-dulce",
+    "nombre": "Sin TACC · Dulce"
+   },
+   {
+    "id": "t-bebidas",
+    "nombre": "Sin TACC · Bebidas y barra"
+   }
+  ],
+  "productos": [
+   {
+    "id": "d-espresso",
+    "categoria": "d-cafe",
+    "nombre": "Espresso",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "d-lungo",
+    "categoria": "d-cafe",
+    "nombre": "Lungo",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "d-doppio",
+    "categoria": "d-cafe",
+    "nombre": "Doppio",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "d-piccolo-latte",
+    "categoria": "d-cafe",
+    "nombre": "Piccolo latte",
+    "descripcion": "",
+    "precio": 5000
+   },
+   {
+    "id": "d-americano",
+    "categoria": "d-cafe",
+    "nombre": "Americano",
+    "descripcion": "",
+    "precio": 5500
+   },
+   {
+    "id": "d-capuccino",
+    "categoria": "d-cafe",
+    "nombre": "Capuccino",
+    "descripcion": "",
+    "precio": 5500,
+    "foto": "img/carta/capuccino.webp"
+   },
+   {
+    "id": "d-capuccino-italiano",
+    "categoria": "d-cafe",
+    "nombre": "Capuccino italiano",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "d-magic",
+    "categoria": "d-cafe",
+    "nombre": "Magic",
+    "descripcion": "",
+    "precio": 5800
+   },
+   {
+    "id": "d-flat-white",
+    "categoria": "d-cafe",
+    "nombre": "Flat white",
+    "descripcion": "",
+    "precio": 6000,
+    "foto": "img/carta/flat-white.webp"
+   },
+   {
+    "id": "d-latte",
+    "categoria": "d-cafe",
+    "nombre": "Latte",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "d-latte-saborizado",
+    "categoria": "d-cafe",
+    "nombre": "Latte saborizado",
+    "descripcion": "Pistacho, vainilla, hibiscus, lavanda o toffee caramel.",
+    "precio": 6800
+   },
+   {
+    "id": "d-mocca",
+    "categoria": "d-cafe",
+    "nombre": "Mocca",
+    "descripcion": "",
+    "precio": 7000
+   },
+   {
+    "id": "d-espresso-tonic",
+    "categoria": "d-cafe",
+    "nombre": "Espresso tonic",
+    "descripcion": "",
+    "precio": 7000
+   },
+   {
+    "id": "d-matcha-latte",
+    "categoria": "d-cafe",
+    "nombre": "Matcha latte",
+    "descripcion": "",
+    "precio": 6500,
+    "foto": "img/carta/matcha.webp"
+   },
+   {
+    "id": "d-submarino",
+    "categoria": "d-cafe",
+    "nombre": "Submarino",
+    "descripcion": "",
+    "precio": 6500
+   },
+   {
+    "id": "d-filtrado-v60-chemex",
+    "categoria": "d-cafe",
+    "nombre": "Filtrado V60 / Chemex",
+    "descripcion": "Una taza. Grano de especialidad, método a elección.",
+    "precio": 8000,
+    "foto": "img/carta/filtrado.webp"
+   },
+   {
+    "id": "d-14-kg-de-cafe",
+    "categoria": "d-cafe",
+    "nombre": "¼ kg de café",
+    "descripcion": "Nuestro café en grano o molido, para llevar a casa.",
+    "precio": 35500,
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "d-te-en-hebras",
+    "categoria": "d-te",
+    "nombre": "Té en hebras",
+    "descripcion": "Negro o verde.",
+    "precio": 6000
+   },
+   {
+    "id": "d-te-en-saquito",
+    "categoria": "d-te",
+    "nombre": "Té en saquito",
+    "descripcion": "",
+    "precio": 4000
+   },
+   {
+    "id": "d-cafe-frio-extra",
+    "categoria": "d-te",
+    "nombre": "Café frío (extra)",
+    "descripcion": "Cualquier café, frío.",
+    "precio": 300
+   },
+   {
+    "id": "d-shot-de-cafe",
+    "categoria": "d-te",
+    "nombre": "Shot de café",
+    "descripcion": "",
+    "precio": 1500
+   },
+   {
+    "id": "d-shot-de-leche",
+    "categoria": "d-te",
+    "nombre": "Shot de leche",
+    "descripcion": "",
+    "precio": 500
+   },
+   {
+    "id": "d-leche-deslactosada",
+    "categoria": "d-te",
+    "nombre": "Leche deslactosada",
+    "descripcion": "Sin costo.",
+    "precio": 0
+   },
+   {
+    "id": "d-leche-vegetal",
+    "categoria": "d-te",
+    "nombre": "Leche vegetal",
+    "descripcion": "",
+    "precio": 1500
+   },
+   {
+    "id": "d-combo-sanabria",
+    "categoria": "d-combos",
+    "nombre": "Combo Sanabria",
+    "descripcion": "Avocado toast + café a elección.",
+    "precio": 17500,
+    "foto": "img/carta/avocado.webp",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "d-combo-energico",
+    "categoria": "d-combos",
+    "nombre": "Combo enérgico",
+    "descripcion": "Huevos revueltos con pan de molde + café a elección.",
+    "precio": 13500
+   },
+   {
+    "id": "d-combo-clasico",
+    "categoria": "d-combos",
+    "nombre": "Combo clásico",
+    "descripcion": "Tostadas con queso y mermelada + café a elección.",
+    "precio": 12000
+   },
+   {
+    "id": "d-brunch-para-dos",
+    "categoria": "d-combos",
+    "nombre": "Brunch para dos",
+    "descripcion": "2 cafés a elección, 2 vasitos de jugo de naranja, 2 chipá, porción de torta a elección, pan de chocolate y croissant de jamón y queso.",
+    "precio": 45000,
+    "foto": "img/carta/brunch-dos.webp"
+   },
+   {
+    "id": "d-brunch-salado",
+    "categoria": "d-combos",
+    "nombre": "Brunch salado",
+    "descripcion": "2 cafés a elección, 2 vasitos de jugo de naranja, sándwich de chipá con J&Q, croissant con palta y tomate, fosforito grande de brie y huevos revueltos.",
+    "precio": 52000
+   },
+   {
+    "id": "d-menu-ejecutivo",
+    "categoria": "d-combos",
+    "nombre": "Menú ejecutivo",
+    "descripcion": "Plato + bebida + café. Consultá la variedad del día.",
+    "precio": 20000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "d-break-free",
+    "categoria": "d-saladitos",
+    "nombre": "Break Free",
+    "descripcion": "Huevo, palta, queso crema y tomate en pan de viena.",
+    "precio": 10500
+   },
+   {
+    "id": "d-huevos-revueltos",
+    "categoria": "d-saladitos",
+    "nombre": "Huevos revueltos",
+    "descripcion": "Con pan de masa madre.",
+    "precio": 9000
+   },
+   {
+    "id": "d-avocado-toast",
+    "categoria": "d-saladitos",
+    "nombre": "Avocado toast",
+    "descripcion": "Palta, huevo, cherrys y semillas.",
+    "precio": 13000,
+    "foto": "img/carta/avocado.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-croissant-j-q",
+    "categoria": "d-saladitos",
+    "nombre": "Croissant J&Q",
+    "descripcion": "",
+    "precio": 10500,
+    "foto": "img/carta/croissant-jyq.webp"
+   },
+   {
+    "id": "d-croissant-palta-tomate",
+    "categoria": "d-saladitos",
+    "nombre": "Croissant palta & tomate",
+    "descripcion": "",
+    "precio": 10500,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-fosforito-xl",
+    "categoria": "d-saladitos",
+    "nombre": "Fosforito XL",
+    "descripcion": "Jamón y queso, o queso brie con cebolla caramelizada y espinaca.",
+    "precio": 10500
+   },
+   {
+    "id": "d-sandwich-j-q",
+    "categoria": "d-saladitos",
+    "nombre": "Sándwich J&Q",
+    "descripcion": "En pan ciabatta o pan de molde integral.",
+    "precio": 11000
+   },
+   {
+    "id": "d-sandwich-de-chipa",
+    "categoria": "d-saladitos",
+    "nombre": "Sándwich de chipá",
+    "descripcion": "Jamón y queso, o caprese.",
+    "precio": 11000,
+    "foto": "img/carta/chipa.webp"
+   },
+   {
+    "id": "d-chipa-x-90-g",
+    "categoria": "d-saladitos",
+    "nombre": "Chipá x 90 g",
+    "descripcion": "",
+    "precio": 3800,
+    "foto": "img/carta/chipa.webp"
+   },
+   {
+    "id": "d-chipa-relleno-de-3-quesos",
+    "categoria": "d-saladitos",
+    "nombre": "Chipá relleno de 3 quesos",
+    "descripcion": "Tarda unos 15 minutos en salir.",
+    "precio": 5500
+   },
+   {
+    "id": "d-crudo",
+    "categoria": "d-sandwiches",
+    "nombre": "Crudo",
+    "descripcion": "Jamón crudo, queso brie, rúcula y manteca, en pan ciabatta.",
+    "precio": 22000,
+    "foto": "img/carta/crudo.webp"
+   },
+   {
+    "id": "d-focaccero",
+    "categoria": "d-sandwiches",
+    "nombre": "Focaccero",
+    "descripcion": "Mortadela, provolone y pesto, en pan de focaccia.",
+    "precio": 17500,
+    "foto": "img/carta/focaccero.webp"
+   },
+   {
+    "id": "d-focanesa",
+    "categoria": "d-sandwiches",
+    "nombre": "Focanesa",
+    "descripcion": "Mila de peceto, tomate, queso tybo y alioli, en pan de focaccia.",
+    "precio": 18500
+   },
+   {
+    "id": "d-vegetariano",
+    "categoria": "d-sandwiches",
+    "nombre": "Vegetariano",
+    "descripcion": "Palta, rúcula, mermelada de tomate y provolone, en ciabatta. Hay opción vegana.",
+    "precio": 16000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-sandwich-bondiola",
+    "categoria": "d-sandwiches",
+    "nombre": "Sándwich bondiola",
+    "descripcion": "Bondiola desmenuzada, cebolla caramelizada, barbacoa y miel, en pan brioche.",
+    "precio": 18000
+   },
+   {
+    "id": "d-sandwich-carne",
+    "categoria": "d-sandwiches",
+    "nombre": "Sándwich carne",
+    "descripcion": "Roast beef desmenuzado en cocción lenta y muzza derretida, en ciabatta.",
+    "precio": 19000
+   },
+   {
+    "id": "d-veggie-nuevo",
+    "categoria": "d-sandwiches",
+    "nombre": "Veggie nuevo",
+    "descripcion": "Crema de queso azul, mermelada de tomate, rúcula y berenjenas al escabeche, en pan brioche.",
+    "precio": 16000,
+    "foto": "img/carta/veggie.webp",
+    "etiquetas": [
+     "nuevo",
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-omelette-j-q",
+    "categoria": "d-almuerzos",
+    "nombre": "Omelette J&Q",
+    "descripcion": "Con ensalada de verdes y cherrys, o pan de molde.",
+    "precio": 11500
+   },
+   {
+    "id": "d-ensalada-caesar",
+    "categoria": "d-almuerzos",
+    "nombre": "Ensalada Caesar",
+    "descripcion": "Mix de verdes, pechuga grillada, reggianito, croutons y caesar dressing.",
+    "precio": 16000,
+    "foto": "img/carta/caesar.webp"
+   },
+   {
+    "id": "d-ensalada-grill-out",
+    "categoria": "d-almuerzos",
+    "nombre": "Ensalada Grill Out",
+    "descripcion": "Mix de verdes, calabazas y zucchinis grillados, palta, provolone, cherrys y alioli.",
+    "precio": 15000,
+    "foto": "img/carta/grill-out.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-milanesas-de-peceto",
+    "categoria": "d-almuerzos",
+    "nombre": "Milanesas de peceto",
+    "descripcion": "Con ensalada, fideos o papas fritas.",
+    "precio": 18000,
+    "foto": "img/carta/mila.webp"
+   },
+   {
+    "id": "d-medialuna",
+    "categoria": "d-dulce",
+    "nombre": "Medialuna",
+    "descripcion": "",
+    "precio": 3200,
+    "foto": "img/carta/pasteleria.webp"
+   },
+   {
+    "id": "d-croissant",
+    "categoria": "d-dulce",
+    "nombre": "Croissant",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "img/carta/croissant.webp"
+   },
+   {
+    "id": "d-croissant-ddl-pastelera",
+    "categoria": "d-dulce",
+    "nombre": "Croissant DDL / pastelera",
+    "descripcion": "",
+    "precio": 6500
+   },
+   {
+    "id": "d-pan-de-chocolate",
+    "categoria": "d-dulce",
+    "nombre": "Pan de chocolate",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "d-roll-de-canela",
+    "categoria": "d-dulce",
+    "nombre": "Roll de canela",
+    "descripcion": "Con frosting y pistachos.",
+    "precio": 6500
+   },
+   {
+    "id": "d-alfajores",
+    "categoria": "d-dulce",
+    "nombre": "Alfajores",
+    "descripcion": "",
+    "precio": 6500
+   },
+   {
+    "id": "d-cookies",
+    "categoria": "d-dulce",
+    "nombre": "Cookies",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "d-cookie-pistacho",
+    "categoria": "d-dulce",
+    "nombre": "Cookie pistacho",
+    "descripcion": "",
+    "precio": 5500,
+    "foto": "img/carta/cookie.webp"
+   },
+   {
+    "id": "d-tortas",
+    "categoria": "d-dulce",
+    "nombre": "Tortas",
+    "descripcion": "Consultá la variedad del día.",
+    "precio": 10500,
+    "foto": "img/carta/torta.webp"
+   },
+   {
+    "id": "d-bowl-saludable",
+    "categoria": "d-dulce",
+    "nombre": "Bowl saludable",
+    "descripcion": "Yogur, frutas, granola y miel.",
+    "precio": 10500,
+    "foto": "img/carta/bowl.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "d-tostadas",
+    "categoria": "d-dulce",
+    "nombre": "Tostadas",
+    "descripcion": "Con queso y mermelada casera.",
+    "precio": 7000
+   },
+   {
+    "id": "d-exprimido-de-naranja",
+    "categoria": "d-bebidas",
+    "nombre": "Exprimido de naranja",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "img/carta/exprimido.webp"
+   },
+   {
+    "id": "d-limonada",
+    "categoria": "d-bebidas",
+    "nombre": "Limonada",
+    "descripcion": "Tradicional o hibiscus.",
+    "precio": 5500
+   },
+   {
+    "id": "d-jarra-de-limonada",
+    "categoria": "d-bebidas",
+    "nombre": "Jarra de limonada",
+    "descripcion": "",
+    "precio": 9800
+   },
+   {
+    "id": "d-jugo-peach",
+    "categoria": "d-bebidas",
+    "nombre": "Jugo Peach",
+    "descripcion": "Durazno, melón, maracuyá, naranja, limón y almíbar.",
+    "precio": 5800
+   },
+   {
+    "id": "d-jugo-frozen-pink",
+    "categoria": "d-bebidas",
+    "nombre": "Jugo Frozen Pink",
+    "descripcion": "Sandía, frutilla, limón y almíbar.",
+    "precio": 5800
+   },
+   {
+    "id": "d-agua-sin-gas",
+    "categoria": "d-bebidas",
+    "nombre": "Agua sin gas",
+    "descripcion": "",
+    "precio": 3500
+   },
+   {
+    "id": "d-sifon-500-ml",
+    "categoria": "d-bebidas",
+    "nombre": "Sifón 500 ml",
+    "descripcion": "",
+    "precio": 3000
+   },
+   {
+    "id": "d-agua-saborizada",
+    "categoria": "d-bebidas",
+    "nombre": "Agua saborizada",
+    "descripcion": "",
+    "precio": 3500
+   },
+   {
+    "id": "d-gaseosas",
+    "categoria": "d-bebidas",
+    "nombre": "Gaseosas",
+    "descripcion": "Línea Coca-Cola.",
+    "precio": 3500
+   },
+   {
+    "id": "n-panera",
+    "categoria": "n-platos",
+    "nombre": "Panera",
+    "descripcion": "Pan de masa madre y focaccia con dip de zanahoria o berenjenas.",
+    "precio": 8000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-tortilla-deluxe",
+    "categoria": "n-platos",
+    "nombre": "Tortilla deluxe",
+    "descripcion": "Con provoleta y cebolla caramelizada.",
+    "precio": 13500
+   },
+   {
+    "id": "n-provoleta-de-la-casa",
+    "categoria": "n-platos",
+    "nombre": "Provoleta de la casa",
+    "descripcion": "Con jamón crudo y mermelada de tomate.",
+    "precio": 12000,
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "n-papas-fritas-con-alioli",
+    "categoria": "n-platos",
+    "nombre": "Papas fritas con alioli",
+    "descripcion": "Tardan mínimo 20 minutos en salir.",
+    "precio": 9500
+   },
+   {
+    "id": "n-omelette-j-q",
+    "categoria": "n-platos",
+    "nombre": "Omelette J&Q",
+    "descripcion": "Con ensalada de verdes y cherrys, o pan de masa madre.",
+    "precio": 11500
+   },
+   {
+    "id": "n-milanesas-de-peceto",
+    "categoria": "n-platos",
+    "nombre": "Milanesas de peceto",
+    "descripcion": "Con ensalada, fideos o papas fritas.",
+    "precio": 18000,
+    "foto": "img/carta/mila.webp"
+   },
+   {
+    "id": "n-ensalada-caesar",
+    "categoria": "n-platos",
+    "nombre": "Ensalada Caesar",
+    "descripcion": "Mix de verdes, pechuga grillada, reggianito, croutons y caesar dressing.",
+    "precio": 18000,
+    "foto": "img/carta/caesar.webp"
+   },
+   {
+    "id": "n-ensalada-grill-out",
+    "categoria": "n-platos",
+    "nombre": "Ensalada Grill Out",
+    "descripcion": "Mix de verdes, calabazas y zucchinis grillados, palta, provolone, cherrys y alioli.",
+    "precio": 15000,
+    "foto": "img/carta/grill-out.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-crudo",
+    "categoria": "n-entre-panes",
+    "nombre": "Crudo",
+    "descripcion": "Jamón crudo, queso brie, rúcula y manteca, en pan ciabatta.",
+    "precio": 22000,
+    "foto": "img/carta/crudo.webp"
+   },
+   {
+    "id": "n-focaccero",
+    "categoria": "n-entre-panes",
+    "nombre": "Focaccero",
+    "descripcion": "Mortadela, provolone y pesto, en pan de focaccia.",
+    "precio": 17500,
+    "foto": "img/carta/focaccero.webp"
+   },
+   {
+    "id": "n-focanesa",
+    "categoria": "n-entre-panes",
+    "nombre": "Focanesa",
+    "descripcion": "Mila de peceto, tomate, queso tybo y alioli, en pan de focaccia.",
+    "precio": 18500
+   },
+   {
+    "id": "n-vegetariano",
+    "categoria": "n-entre-panes",
+    "nombre": "Vegetariano",
+    "descripcion": "Palta, rúcula, mermelada de tomate y provolone, en ciabatta. Hay opción vegana.",
+    "precio": 16000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-sandwich-bondiola",
+    "categoria": "n-entre-panes",
+    "nombre": "Sándwich bondiola",
+    "descripcion": "Bondiola desmenuzada, cebolla caramelizada, barbacoa y miel, en pan brioche.",
+    "precio": 18000
+   },
+   {
+    "id": "n-sandwich-carne",
+    "categoria": "n-entre-panes",
+    "nombre": "Sándwich carne",
+    "descripcion": "Roast beef desmenuzado en cocción lenta y muzza derretida, en ciabatta.",
+    "precio": 19000
+   },
+   {
+    "id": "n-veggie-nuevo",
+    "categoria": "n-entre-panes",
+    "nombre": "Veggie nuevo",
+    "descripcion": "Crema de queso azul, mermelada de tomate, rúcula y berenjenas al escabeche, en pan brioche.",
+    "precio": 16000,
+    "foto": "img/carta/veggie.webp",
+    "etiquetas": [
+     "nuevo",
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-break-free",
+    "categoria": "n-entre-panes",
+    "nombre": "Break Free",
+    "descripcion": "Pan brioche, huevo, queso crema, palta y tomate.",
+    "precio": 10500
+   },
+   {
+    "id": "n-pizza-muzza",
+    "categoria": "n-pizzas",
+    "nombre": "Pizza muzza",
+    "descripcion": "Muzza, salsa de tomate, aceitunas y orégano.",
+    "precio": 18000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-pizza-provo",
+    "categoria": "n-pizzas",
+    "nombre": "Pizza provo",
+    "descripcion": "Muzza, provolone, salsa de tomate y pesto.",
+    "precio": 20000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-pizza-mortadela",
+    "categoria": "n-pizzas",
+    "nombre": "Pizza mortadela",
+    "descripcion": "Muzza, mortadela, salsa de tomate y pistacho.",
+    "precio": 22000,
+    "foto": "img/carta/pizza-mortadela.webp",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "n-pizza-3-formaggi",
+    "categoria": "n-pizzas",
+    "nombre": "Pizza 3 formaggi",
+    "descripcion": "Muzza, provolone, roquefort y salsa de tomate.",
+    "precio": 21000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-picada-de-campo",
+    "categoria": "n-picadas",
+    "nombre": "Picada de campo",
+    "descripcion": "Provolone, gouda, roquefort, pata cocida, mortadela y salame picado grueso.",
+    "precio": 39000,
+    "foto": "img/carta/picada-campo.webp"
+   },
+   {
+    "id": "n-picada-border",
+    "categoria": "n-picadas",
+    "nombre": "Picada Border",
+    "descripcion": "Gouda, brie, reggianito, jamón crudo, mortadela y salame holstein.",
+    "precio": 45000,
+    "foto": "img/carta/picada-border.webp",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "n-picada-vegetariana",
+    "categoria": "n-picadas",
+    "nombre": "Picada vegetariana",
+    "descripcion": "Gouda, brie, reggianito, roquefort, berenjenas al escabeche, aceitunas, cherrys, pasta de zanahoria y focaccia.",
+    "precio": 32000,
+    "foto": "img/carta/picada-veggie.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-picada-vegana",
+    "categoria": "n-picadas",
+    "nombre": "Picada vegana",
+    "descripcion": "Consultá qué lleva hoy.",
+    "precio": 20000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "n-vermu-rosso-blanco-primavera",
+    "categoria": "n-vermu",
+    "nombre": "Vermú rosso / blanco / primavera",
+    "descripcion": "Con tónica o soda.",
+    "precio": 9500,
+    "foto": "img/carta/vermu.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-combo-vermutero",
+    "categoria": "n-vermu",
+    "nombre": "Combo vermutero",
+    "descripcion": "Botella de 750 ml a elección (rosso, blanco o primavera) + 2 sifones de 500 ml.",
+    "precio": 48000,
+    "etiquetas": [
+     "salon",
+     "casa"
+    ]
+   },
+   {
+    "id": "n-el-zorrito-naranjo",
+    "categoria": "n-vinos",
+    "nombre": "El Zorrito naranjo",
+    "descripcion": "Botella. Vino natural.",
+    "precio": 28000,
+    "foto": "img/carta/vinos.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-el-burro-malbec",
+    "categoria": "n-vinos",
+    "nombre": "El Burro malbec",
+    "descripcion": "Botella. Vino natural.",
+    "precio": 28000,
+    "foto": "img/carta/vinos.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-la-oveja-blanco",
+    "categoria": "n-vinos",
+    "nombre": "La Oveja blanco",
+    "descripcion": "Botella. Vino natural.",
+    "precio": 28000,
+    "foto": "img/carta/vinos.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-flores-negras-pinot",
+    "categoria": "n-vinos",
+    "nombre": "Flores Negras pinot",
+    "descripcion": "Botella.",
+    "precio": 25000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-pyros-malbec-de-la-casa",
+    "categoria": "n-vinos",
+    "nombre": "Pyros malbec de la casa",
+    "descripcion": "Botella.",
+    "precio": 22000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-copa-de-vino",
+    "categoria": "n-vinos",
+    "nombre": "Copa de vino",
+    "descripcion": "Malbec de la casa.",
+    "precio": 8000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-fernet-con-coca",
+    "categoria": "n-tragos",
+    "nombre": "Fernet con coca",
+    "descripcion": "",
+    "precio": 9500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-aperol-spritz",
+    "categoria": "n-tragos",
+    "nombre": "Aperol spritz",
+    "descripcion": "",
+    "precio": 10500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-campari",
+    "categoria": "n-tragos",
+    "nombre": "Campari",
+    "descripcion": "",
+    "precio": 9500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-gin-gordon-s",
+    "categoria": "n-tragos",
+    "nombre": "Gin Gordon's",
+    "descripcion": "Pepino, limón o naranja.",
+    "precio": 9500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-gin-bombay",
+    "categoria": "n-tragos",
+    "nombre": "Gin Bombay",
+    "descripcion": "Pepino, limón o naranja.",
+    "precio": 14500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-negroni",
+    "categoria": "n-tragos",
+    "nombre": "Negroni",
+    "descripcion": "",
+    "precio": 10800,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-penicillin",
+    "categoria": "n-tragos",
+    "nombre": "Penicillin",
+    "descripcion": "",
+    "precio": 11000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-whisky-red-label",
+    "categoria": "n-tragos",
+    "nombre": "Whisky Red Label",
+    "descripcion": "",
+    "precio": 12000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-chill-fresh",
+    "categoria": "n-tragos",
+    "nombre": "Chill Fresh",
+    "descripcion": "De autor: gin, aperol, limón, almíbar, jengibre y pepino.",
+    "precio": 11000,
+    "foto": "img/carta/tragos-autor.webp",
+    "etiquetas": [
+     "salon",
+     "casa"
+    ]
+   },
+   {
+    "id": "n-not-again",
+    "categoria": "n-tragos",
+    "nombre": "Not Again",
+    "descripcion": "De autor: gin, vermú rosso y sprite.",
+    "precio": 11000,
+    "foto": "img/carta/tragos-autor.webp",
+    "etiquetas": [
+     "salon",
+     "casa"
+    ]
+   },
+   {
+    "id": "n-pisco-summer",
+    "categoria": "n-tragos",
+    "nombre": "Pisco Summer",
+    "descripcion": "De autor: pisco, maracuyá, limón y almíbar.",
+    "precio": 11000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-hollberrie",
+    "categoria": "n-tragos",
+    "nombre": "Hollberrie",
+    "descripcion": "De autor: gin de frutos rojos.",
+    "precio": 11500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-corona-porron",
+    "categoria": "n-cervezas",
+    "nombre": "Corona porrón",
+    "descripcion": "",
+    "precio": 7000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-patagonia",
+    "categoria": "n-cervezas",
+    "nombre": "Patagonia",
+    "descripcion": "Consultá la variedad.",
+    "precio": 7000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-michelob-sin-tacc",
+    "categoria": "n-cervezas",
+    "nombre": "Michelob sin TACC",
+    "descripcion": "",
+    "precio": 6500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "n-exprimido-de-naranja",
+    "categoria": "n-cervezas",
+    "nombre": "Exprimido de naranja",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "img/carta/exprimido.webp"
+   },
+   {
+    "id": "n-limonada",
+    "categoria": "n-cervezas",
+    "nombre": "Limonada",
+    "descripcion": "Tradicional o hibiscus.",
+    "precio": 5500
+   },
+   {
+    "id": "n-jarra-de-limonada",
+    "categoria": "n-cervezas",
+    "nombre": "Jarra de limonada",
+    "descripcion": "",
+    "precio": 9500
+   },
+   {
+    "id": "n-jugo-peach",
+    "categoria": "n-cervezas",
+    "nombre": "Jugo Peach",
+    "descripcion": "Durazno, melón, maracuyá, naranja, limón y almíbar.",
+    "precio": 5800
+   },
+   {
+    "id": "n-jugo-frozen-pink",
+    "categoria": "n-cervezas",
+    "nombre": "Jugo Frozen Pink",
+    "descripcion": "Sandía, frutilla, limón y almíbar.",
+    "precio": 5800
+   },
+   {
+    "id": "n-agua-sin-gas",
+    "categoria": "n-cervezas",
+    "nombre": "Agua sin gas",
+    "descripcion": "",
+    "precio": 3500
+   },
+   {
+    "id": "n-sifon-500-ml",
+    "categoria": "n-cervezas",
+    "nombre": "Sifón 500 ml",
+    "descripcion": "",
+    "precio": 3000
+   },
+   {
+    "id": "n-agua-saborizada",
+    "categoria": "n-cervezas",
+    "nombre": "Agua saborizada",
+    "descripcion": "",
+    "precio": 3500
+   },
+   {
+    "id": "n-gaseosas",
+    "categoria": "n-cervezas",
+    "nombre": "Gaseosas",
+    "descripcion": "Línea Coca-Cola.",
+    "precio": 3500
+   },
+   {
+    "id": "t-espresso",
+    "categoria": "t-cafe",
+    "nombre": "Espresso",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "t-lungo",
+    "categoria": "t-cafe",
+    "nombre": "Lungo",
+    "descripcion": "",
+    "precio": 4500
+   },
+   {
+    "id": "t-piccolo-latte",
+    "categoria": "t-cafe",
+    "nombre": "Piccolo latte",
+    "descripcion": "",
+    "precio": 5000
+   },
+   {
+    "id": "t-americano",
+    "categoria": "t-cafe",
+    "nombre": "Americano",
+    "descripcion": "",
+    "precio": 5500
+   },
+   {
+    "id": "t-capuccino",
+    "categoria": "t-cafe",
+    "nombre": "Capuccino",
+    "descripcion": "",
+    "precio": 5500
+   },
+   {
+    "id": "t-capuccino-italiano",
+    "categoria": "t-cafe",
+    "nombre": "Capuccino italiano",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "t-magic",
+    "categoria": "t-cafe",
+    "nombre": "Magic",
+    "descripcion": "",
+    "precio": 5800
+   },
+   {
+    "id": "t-flat-white",
+    "categoria": "t-cafe",
+    "nombre": "Flat white",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "t-latte",
+    "categoria": "t-cafe",
+    "nombre": "Latte",
+    "descripcion": "",
+    "precio": 6000
+   },
+   {
+    "id": "t-mocca",
+    "categoria": "t-cafe",
+    "nombre": "Mocca",
+    "descripcion": "",
+    "precio": 7000
+   },
+   {
+    "id": "t-espresso-tonic",
+    "categoria": "t-cafe",
+    "nombre": "Espresso tonic",
+    "descripcion": "",
+    "precio": 7000
+   },
+   {
+    "id": "t-submarino",
+    "categoria": "t-cafe",
+    "nombre": "Submarino",
+    "descripcion": "",
+    "precio": 6500
+   },
+   {
+    "id": "t-latte-saborizado",
+    "categoria": "t-cafe",
+    "nombre": "Latte saborizado",
+    "descripcion": "Pistacho, vainilla, hibiscus, lavanda o toffee caramel.",
+    "precio": 6800
+   },
+   {
+    "id": "t-matcha-latte",
+    "categoria": "t-cafe",
+    "nombre": "Matcha latte",
+    "descripcion": "",
+    "precio": 6500,
+    "foto": "img/carta/matcha.webp"
+   },
+   {
+    "id": "t-filtrado-v60-chemex",
+    "categoria": "t-cafe",
+    "nombre": "Filtrado V60 / Chemex",
+    "descripcion": "Una taza.",
+    "precio": 8000,
+    "foto": "img/carta/filtrado.webp"
+   },
+   {
+    "id": "t-14-kg-de-cafe",
+    "categoria": "t-cafe",
+    "nombre": "¼ kg de café",
+    "descripcion": "",
+    "precio": 35500
+   },
+   {
+    "id": "t-te-en-hebras",
+    "categoria": "t-cafe",
+    "nombre": "Té en hebras",
+    "descripcion": "Negro o verde.",
+    "precio": 6000
+   },
+   {
+    "id": "t-te-en-saquito",
+    "categoria": "t-cafe",
+    "nombre": "Té en saquito",
+    "descripcion": "",
+    "precio": 4000
+   },
+   {
+    "id": "t-leche-vegetal",
+    "categoria": "t-cafe",
+    "nombre": "Leche vegetal",
+    "descripcion": "",
+    "precio": 1500
+   },
+   {
+    "id": "t-brunch-para-dos-sin-tacc",
+    "categoria": "t-combos",
+    "nombre": "Brunch para dos sin TACC",
+    "descripcion": "2 cafés, 2 vasitos de jugo de naranja, 2 chipá, sándwich de J&Q, avocado toast y cuadrado de coco y DDL.",
+    "precio": 49000,
+    "foto": "img/carta/brunch-sin-tacc.webp",
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "t-combo-sanabria",
+    "categoria": "t-combos",
+    "nombre": "Combo Sanabria",
+    "descripcion": "Avocado toast en pan gluten free + café a elección.",
+    "precio": 17500,
+    "foto": "img/carta/avocado.webp"
+   },
+   {
+    "id": "t-combo-energico",
+    "categoria": "t-combos",
+    "nombre": "Combo enérgico",
+    "descripcion": "Huevos revueltos + café a elección.",
+    "precio": 13500
+   },
+   {
+    "id": "t-combo-clasico",
+    "categoria": "t-combos",
+    "nombre": "Combo clásico",
+    "descripcion": "Tostadas con queso y mermelada + café a elección.",
+    "precio": 12000
+   },
+   {
+    "id": "t-menu-ejecutivo",
+    "categoria": "t-combos",
+    "nombre": "Menú ejecutivo",
+    "descripcion": "Días hábiles de 12 a 15. Plato + bebida + café: consultá la variedad.",
+    "precio": 20000,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-break-free",
+    "categoria": "t-saladitos",
+    "nombre": "Break Free",
+    "descripcion": "Huevo, palta, queso crema y tomate, en pan de molde gluten free.",
+    "precio": 10500
+   },
+   {
+    "id": "t-huevos-revueltos",
+    "categoria": "t-saladitos",
+    "nombre": "Huevos revueltos",
+    "descripcion": "Con pan de molde gluten free.",
+    "precio": 9000
+   },
+   {
+    "id": "t-avocado-toast",
+    "categoria": "t-saladitos",
+    "nombre": "Avocado toast",
+    "descripcion": "Palta, huevo, cherrys y semillas, en pan de molde gluten free.",
+    "precio": 13000,
+    "foto": "img/carta/avocado.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-sandwich-j-q",
+    "categoria": "t-saladitos",
+    "nombre": "Sándwich J&Q",
+    "descripcion": "En pan de molde gluten free.",
+    "precio": 11000
+   },
+   {
+    "id": "t-sandwich-de-chipa",
+    "categoria": "t-saladitos",
+    "nombre": "Sándwich de chipá",
+    "descripcion": "Jamón y queso, o caprese.",
+    "precio": 11000,
+    "foto": "img/carta/chipa.webp"
+   },
+   {
+    "id": "t-chipa-x-90-g",
+    "categoria": "t-saladitos",
+    "nombre": "Chipá x 90 g",
+    "descripcion": "",
+    "precio": 3800,
+    "foto": "img/carta/chipa.webp"
+   },
+   {
+    "id": "t-chipa-relleno-de-3-quesos",
+    "categoria": "t-saladitos",
+    "nombre": "Chipá relleno de 3 quesos",
+    "descripcion": "Tarda unos 15 minutos en salir.",
+    "precio": 5500
+   },
+   {
+    "id": "t-crudo",
+    "categoria": "t-sandwiches",
+    "nombre": "Crudo",
+    "descripcion": "Jamón crudo, brie, rúcula y manteca. En pan de molde gluten free.",
+    "precio": 22000,
+    "foto": "img/carta/sin-tacc-sandwich.webp"
+   },
+   {
+    "id": "t-focaccero",
+    "categoria": "t-sandwiches",
+    "nombre": "Focaccero",
+    "descripcion": "Mortadela, provolone y pesto. En pan de molde gluten free.",
+    "precio": 17500
+   },
+   {
+    "id": "t-vegetariano",
+    "categoria": "t-sandwiches",
+    "nombre": "Vegetariano",
+    "descripcion": "Palta, rúcula, mermelada de tomate y provolone. Hay opción vegana.",
+    "precio": 16000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-veggie",
+    "categoria": "t-sandwiches",
+    "nombre": "Veggie",
+    "descripcion": "Crema de queso azul, berenjenas al escabeche, mermelada de tomate y rúcula.",
+    "precio": 16000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-sandwich-bondiola",
+    "categoria": "t-sandwiches",
+    "nombre": "Sándwich bondiola",
+    "descripcion": "Bondiola desmenuzada, cebolla caramelizada, barbacoa y miel.",
+    "precio": 18000
+   },
+   {
+    "id": "t-sandwich-carne",
+    "categoria": "t-sandwiches",
+    "nombre": "Sándwich carne",
+    "descripcion": "Roast beef desmenuzado en cocción lenta y muzza derretida.",
+    "precio": 19000
+   },
+   {
+    "id": "t-tortilla-deluxe",
+    "categoria": "t-platos",
+    "nombre": "Tortilla deluxe",
+    "descripcion": "Con provoleta y cebolla caramelizada.",
+    "precio": 13500
+   },
+   {
+    "id": "t-provoleta-de-la-casa",
+    "categoria": "t-platos",
+    "nombre": "Provoleta de la casa",
+    "descripcion": "Con jamón crudo y mermelada de tomate.",
+    "precio": 12000
+   },
+   {
+    "id": "t-papas-fritas-con-alioli",
+    "categoria": "t-platos",
+    "nombre": "Papas fritas con alioli",
+    "descripcion": "Tardan mínimo 20 minutos en salir.",
+    "precio": 9500
+   },
+   {
+    "id": "t-omelette-j-q",
+    "categoria": "t-platos",
+    "nombre": "Omelette J&Q",
+    "descripcion": "Con ensalada de verdes y cherrys, o pan de molde gluten free.",
+    "precio": 11500
+   },
+   {
+    "id": "t-wrap-de-pollo",
+    "categoria": "t-platos",
+    "nombre": "Wrap de pollo",
+    "descripcion": "",
+    "precio": 17000
+   },
+   {
+    "id": "t-ensalada-caesar",
+    "categoria": "t-platos",
+    "nombre": "Ensalada Caesar",
+    "descripcion": "Mix de verdes, pechuga, reggianito, croutons gluten free y caesar dressing.",
+    "precio": 16000,
+    "foto": "img/carta/caesar.webp"
+   },
+   {
+    "id": "t-ensalada-grill-out",
+    "categoria": "t-platos",
+    "nombre": "Ensalada Grill Out",
+    "descripcion": "Mix de verdes, calabazas y zucchinis grillados, palta, provolone, cherrys y alioli.",
+    "precio": 15000,
+    "foto": "img/carta/grill-out.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-panera",
+    "categoria": "t-platos",
+    "nombre": "Panera",
+    "descripcion": "Pan de molde gluten free y dip a elección.",
+    "precio": 8000
+   },
+   {
+    "id": "t-pizza-muzza",
+    "categoria": "t-pizzas",
+    "nombre": "Pizza muzza",
+    "descripcion": "Muzza, salsa de tomate y orégano.",
+    "precio": 27000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-pizza-provo",
+    "categoria": "t-pizzas",
+    "nombre": "Pizza provo",
+    "descripcion": "Muzza, provolone, salsa de tomate y pesto.",
+    "precio": 29000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-pizza-mortadela",
+    "categoria": "t-pizzas",
+    "nombre": "Pizza mortadela",
+    "descripcion": "Muzza, mortadela, salsa de tomate y pistacho.",
+    "precio": 31000
+   },
+   {
+    "id": "t-picada-de-campo",
+    "categoria": "t-picadas",
+    "nombre": "Picada de campo",
+    "descripcion": "Provolone, gouda, roquefort, jamón, mortadela y salame picado grueso.",
+    "precio": 39000,
+    "foto": "img/carta/picada-campo.webp"
+   },
+   {
+    "id": "t-picada-border",
+    "categoria": "t-picadas",
+    "nombre": "Picada Border",
+    "descripcion": "Gouda, brie, reggianito, jamón crudo, mortadela y salame holstein.",
+    "precio": 45000,
+    "foto": "img/carta/picada-border.webp"
+   },
+   {
+    "id": "t-picada-vegetariana",
+    "categoria": "t-picadas",
+    "nombre": "Picada vegetariana",
+    "descripcion": "Gouda, brie, reggianito, roquefort, berenjenas al escabeche, aceitunas, cherrys, pasta de zanahoria y pan gluten free.",
+    "precio": 32000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-picada-vegana",
+    "categoria": "t-picadas",
+    "nombre": "Picada vegana",
+    "descripcion": "Consultá qué lleva hoy.",
+    "precio": 20000,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-brownie-con-nuez",
+    "categoria": "t-dulce",
+    "nombre": "Brownie con nuez",
+    "descripcion": "",
+    "precio": 11500
+   },
+   {
+    "id": "t-carrot-cake",
+    "categoria": "t-dulce",
+    "nombre": "Carrot cake",
+    "descripcion": "",
+    "precio": 11500
+   },
+   {
+    "id": "t-coco-con-ddl",
+    "categoria": "t-dulce",
+    "nombre": "Coco con DDL",
+    "descripcion": "",
+    "precio": 11500
+   },
+   {
+    "id": "t-alfajor-con-ddl",
+    "categoria": "t-dulce",
+    "nombre": "Alfajor con DDL",
+    "descripcion": "Blanco o negro.",
+    "precio": 6200
+   },
+   {
+    "id": "t-tostadas",
+    "categoria": "t-dulce",
+    "nombre": "Tostadas",
+    "descripcion": "En pan de molde gluten free, con queso y mermelada casera.",
+    "precio": 7000
+   },
+   {
+    "id": "t-bowl-saludable",
+    "categoria": "t-dulce",
+    "nombre": "Bowl saludable",
+    "descripcion": "Yogur, frutas y miel.",
+    "precio": 9200,
+    "foto": "img/carta/bowl.webp",
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "t-exprimido-de-naranja",
+    "categoria": "t-bebidas",
+    "nombre": "Exprimido de naranja",
+    "descripcion": "",
+    "precio": 5000,
+    "foto": "img/carta/exprimido.webp"
+   },
+   {
+    "id": "t-limonada",
+    "categoria": "t-bebidas",
+    "nombre": "Limonada",
+    "descripcion": "Tradicional o hibiscus.",
+    "precio": 5500
+   },
+   {
+    "id": "t-jugo-peach",
+    "categoria": "t-bebidas",
+    "nombre": "Jugo Peach",
+    "descripcion": "",
+    "precio": 5800
+   },
+   {
+    "id": "t-jugo-frozen-pink",
+    "categoria": "t-bebidas",
+    "nombre": "Jugo Frozen Pink",
+    "descripcion": "",
+    "precio": 5800
+   },
+   {
+    "id": "t-agua-sin-gas",
+    "categoria": "t-bebidas",
+    "nombre": "Agua sin gas",
+    "descripcion": "",
+    "precio": 3500
+   },
+   {
+    "id": "t-gaseosas",
+    "categoria": "t-bebidas",
+    "nombre": "Gaseosas",
+    "descripcion": "Línea Coca-Cola.",
+    "precio": 3500
+   },
+   {
+    "id": "t-michelob-sin-tacc",
+    "categoria": "t-bebidas",
+    "nombre": "Michelob sin TACC",
+    "descripcion": "La cerveza apta.",
+    "precio": 6500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-vermu-rosso-blanco-primavera",
+    "categoria": "t-bebidas",
+    "nombre": "Vermú rosso / blanco / primavera",
+    "descripcion": "Con tónica o soda.",
+    "precio": 9500,
+    "foto": "img/carta/vermu.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-fernet-con-coca",
+    "categoria": "t-bebidas",
+    "nombre": "Fernet con coca",
+    "descripcion": "",
+    "precio": 9500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-aperol-spritz",
+    "categoria": "t-bebidas",
+    "nombre": "Aperol spritz",
+    "descripcion": "",
+    "precio": 10500,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-negroni",
+    "categoria": "t-bebidas",
+    "nombre": "Negroni",
+    "descripcion": "",
+    "precio": 10800,
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-chill-fresh",
+    "categoria": "t-bebidas",
+    "nombre": "Chill Fresh",
+    "descripcion": "Gin, aperol, limón, almíbar, jengibre y pepino.",
+    "precio": 11000,
+    "foto": "img/carta/tragos-autor.webp",
+    "etiquetas": [
+     "salon"
+    ]
+   },
+   {
+    "id": "t-vinos",
+    "categoria": "t-bebidas",
+    "nombre": "Vinos",
+    "descripcion": "Consultá la variedad.",
+    "precio": null,
+    "etiquetas": [
+     "salon"
+    ]
+   }
+  ]
+ },
+ "textos": {
+  "tuPedido": "Para llevar",
+  "verPedido": "Para llevar",
+  "carritoVacio": "Todavía no elegiste nada.",
+  "carritoVacioSub": "¿Un flat white y una medialuna? Están en la carta de día.",
+  "retiro": "Retirás en Sanabria 4302 (esq. Habana)",
+  "telefono": "Teléfono",
+  "notaPedido": "¿Algo más? (leche vegetal, sin azúcar…)",
+  "comoPagas": "¿Cómo lo cerrás?",
+  "porWhatsapp": "Por DM de Instagram",
+  "porWhatsappSub": "Copiamos el pedido y abrimos el chat de @borderdevoto",
+  "porMP": "Pagar con Mercado Pago",
+  "porMPSub": "Lo pagás ahora y pasás a buscarlo",
+  "enviarPedido": "Copiar y abrir el DM",
+  "pedidoListo": "¡Pedido listo para mandar!",
+  "pedidoListoSub": "Tu código es {codigo}. Ya está en el panel del local: pegá el mensaje en el DM y listo.",
+  "pedidoPagadoSub": "Pedido {codigo} pagado. Te esperamos en la esquina.",
+  "pagoRechazadoSub": "Probá otra vez o mandalo por DM de Instagram.",
+  "copiado": "Copiamos el pedido: pegalo en el DM de @borderdevoto.",
+  "abrirWA": "Abrir el DM",
+  "waPedido": "Hola Border! Quiero pedir para llevar:",
+  "reservarMesa": "Guardame mesa",
+  "confirmarReserva": "Pedir la mesa",
+  "comentario": "Comentario (cumple, vereda, vamos con perro…)",
+  "reservaLista": "¡Mesa pedida!",
+  "reservaListaSub": "{personas} · {dia} a las {hora}. Te confirmamos por DM de Instagram.",
+  "avisarWA": "Avisar por DM",
+  "waReserva": "Hola Border! Pedí una mesa para {personas} el {dia} a las {hora}, a nombre de {nombre}.",
+  "masPersonas": "Para más de {n} personas escribinos por DM de Instagram.",
+  "avisarListo": "Avisar por DM",
+  "sinPrecio": "Consultar"
+ }
+}
