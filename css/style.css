@@ -77,6 +77,9 @@ html[data-momento="noche"] .si-dia-flex, html[data-momento="dia"] .si-noche-flex
 .con-intro body { overflow: hidden; }
 .intro__luz { position: relative; display: grid; place-items: center; }
 .intro__letras { display: flex; font: 700 clamp(46px, 15vw, 120px)/1 var(--f-luz); letter-spacing: .26em; padding-left: .26em; color: #3a3b39; }
+.con-intro:not(.fuente-lista) .intro__letras { opacity: 0; }
+.con-intro:not(.fuente-lista) .intro__letras span, .con-intro:not(.fuente-lista) .intro__sticker { animation-play-state: paused; }
+.intro__letras { transition: opacity .2s; }
 .intro__letras span { animation: prende .26s steps(2, end) calc(.12s + var(--i) * .1s) forwards; }
 .intro__letras .parpadea { animation: prende-falla .55s linear .32s forwards; }
 .intro__sticker { position: absolute; right: -6%; bottom: -78%; width: clamp(120px, 36vw, 230px); padding: 10px 12px; border-radius: 14px; background: var(--papel); box-shadow: 0 12px 26px rgba(0, 0, 0, .5); transform: rotate(-9deg) scale(1.5); opacity: 0; animation: pega .45s var(--rebote) .82s forwards; }
@@ -232,9 +235,9 @@ html:not(.js) .zigzag path { stroke-dashoffset: 0; }
 /* foto del plato (celu: toque · desktop: al pasar) */
 .foto-plato { position: fixed; z-index: 950; inset: 0; display: grid; place-items: center; padding: 24px; background: rgba(20, 21, 20, .8); opacity: 0; transition: opacity .25s; }
 .foto-plato.abierta { opacity: 1; }
-.foto-plato figure { margin: 0; width: min(92vw, 460px); border-radius: 22px; overflow: hidden; background: var(--papel); transform: scale(.94); transition: transform .35s var(--rebote); }
+.foto-plato figure { margin: 0; width: min(92vw, 560px); border-radius: 22px; overflow: hidden; background: var(--papel); transform: scale(.94); transition: transform .35s var(--rebote); }
 .foto-plato.abierta figure { transform: none; }
-.foto-plato img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.foto-plato img { width: 100%; height: auto; max-height: min(74vh, 760px); object-fit: contain; background: var(--piedra); }
 .foto-plato figcaption { padding: 14px 18px; font: 800 20px/1.2 var(--f-marcador); color: var(--pizarra); }
 .foto-plato__x { position: absolute; top: calc(14px + env(safe-area-inset-top)); right: 14px; width: 48px; height: 48px; border-radius: 99px; border: 0; background: var(--papel); color: var(--piedra); font-size: 22px; cursor: pointer; }
 .foto-flota { display: none; }
@@ -282,7 +285,9 @@ html:not(.js) .zigzag path { stroke-dashoffset: 0; }
 .agenda { background: var(--piedra); color: var(--crema); padding: var(--aire) 0 calc(var(--aire) - 20px); }
 .fila { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; padding: 6px max(var(--pad), calc((100% - 1240px) / 2 + var(--pad))) 22px; scroll-padding-inline: max(var(--pad), calc((100% - 1240px) / 2 + var(--pad))); cursor: grab; }
 .fila::-webkit-scrollbar { display: none; }
-.fila.arrastrando { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+.fila.arrastrando { cursor: grabbing; scroll-snap-type: none; user-select: none; -webkit-user-select: none; }
+.fila.arrastrando .ticket { pointer-events: none; }
+.fila .ticket { user-select: none; -webkit-user-select: none; }
 .ticket { flex: 0 0 min(80%, 340px); scroll-snap-align: start; position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px 22px 22px 30px; border-radius: 18px; background: var(--papel); color: var(--piedra); }
 .ticket::before { content: ""; position: absolute; left: 12px; top: 18px; bottom: 18px; border-left: 3px dashed var(--mesa); }
 .ticket__dato { font: 600 13px/1.3 var(--f-texto); color: var(--mesa); letter-spacing: .06em; text-transform: uppercase; }
@@ -307,6 +312,33 @@ html:not(.js) .zigzag path { stroke-dashoffset: 0; }
 .carta-foto.sale { transition: transform .45s var(--ease), opacity .45s; opacity: 0; }
 .mazo__ctrl { display: flex; align-items: center; gap: 16px; margin-top: 30px; }
 .mazo__n { font-weight: 600; color: var(--gris); }
+.solo-pc { display: none; }
+
+/* desde tablet: galería desplegada en vez de mazo */
+@media (min-width: 768px) {
+  .solo-celu { display: none; }
+  .solo-pc { display: inline; }
+  .ustedes__cont { justify-items: stretch; }
+  .mazo { width: 100%; aspect-ratio: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 210px; grid-auto-flow: dense; gap: 16px; touch-action: auto; }
+  .mazo .carta-foto { position: relative; inset: auto; z-index: auto !important; transform: none !important; padding: 0; border-radius: 16px; overflow: hidden; box-shadow: none; cursor: zoom-in; background: var(--papel-2); }
+  .mazo .carta-foto img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0; transition: transform .7s var(--ease); }
+  .mazo .carta-foto figcaption { position: absolute; left: 12px; bottom: 12px; right: auto; padding: 7px 12px; border-radius: 99px; background: var(--papel); font-size: 15px; text-align: left; box-shadow: 0 4px 14px rgba(20, 21, 20, .18); transform: translateY(6px); opacity: .96; transition: transform .4s var(--ease); }
+  .mazo .g-grande { grid-column: span 2; grid-row: span 2; }
+  .mazo .g-alta { grid-row: span 2; }
+  .mazo .g-ancha { grid-column: span 2; }
+  .mazo__ctrl { display: none; }
+  .js .mazo.aparece { opacity: 1; transform: none; }
+  .js .mazo .carta-foto { opacity: 0; transform: translateY(24px) !important; transition: opacity .6s, transform .8s var(--ease) !important; transition-delay: calc(var(--k, 0) * 60ms) !important; }
+  .js .mazo.visto .carta-foto { opacity: 1; transform: none !important; }
+}
+@media (min-width: 768px) and (max-width: 1099px) { .mazo .g-final { grid-column: span 3; } }
+@media (min-width: 768px) and (hover: hover) {
+  .mazo .carta-foto:hover img { transform: scale(1.05); }
+  .mazo .carta-foto:hover figcaption { transform: none; }
+}
+@media (min-width: 1100px) {
+  .mazo { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 230px; gap: 18px; }
+}
 
 /* ---------------- ESQUINA ---------------- */
 .esquina { background: var(--piedra); color: var(--crema); padding: var(--aire) 0; }
@@ -369,10 +401,10 @@ html:not(.paso-hero) .kit-demo-pill, html.foto-abierta .kit-fab, html.menu-abier
 }
 
 @media (min-width: 1100px) {
-  .hero { min-height: max(680px, 100svh); grid-template-columns: minmax(0, 520px) minmax(0, 1fr); align-items: center; gap: 28px; padding: calc(var(--barra) + 30px) var(--pad) 30px; }
-  .hero__foto { position: relative; inset: auto; top: auto; grid-column: 2; grid-row: 1; height: min(76svh, 640px); border-radius: 22px; overflow: hidden; }
+  .hero { min-height: max(680px, 100svh); grid-template-columns: minmax(0, 540px) minmax(0, 1fr); align-items: center; gap: clamp(28px, 4vw, 64px); padding: calc(var(--barra) + 30px) max(var(--pad), calc((100% - 1440px) / 2 + var(--pad))) 30px; }
+  .hero__foto { position: relative; inset: auto; top: auto; grid-column: 2; grid-row: 1; width: 100%; height: auto; aspect-ratio: 6 / 5; max-height: calc(100svh - var(--barra) - 60px); justify-self: end; border-radius: 22px; overflow: hidden; }
   .hero__foto::after { display: none; }
-  .hero__foto img { object-position: 50% 50%; }
+  .hero__foto img { object-position: 50% 32%; }
   .hero__sticker--celu { display: none; }
   .hero__sticker--desk { display: block; top: auto; bottom: 26px; left: 26px; right: auto; width: 180px; }
   .hero__texto { grid-column: 1; grid-row: 1; padding: 0; margin: 0; }
@@ -398,6 +430,15 @@ html:not(.paso-hero) .kit-demo-pill, html.foto-abierta .kit-fab, html.menu-abier
   .maquina__vidrio { height: 420px; }
 }
 
+@media (min-width: 1100px) {
+  .fila { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; overflow: visible; cursor: auto; max-width: 1240px; margin: 0 auto; padding: 6px var(--pad) 22px; scroll-snap-type: none; }
+  .ticket { flex: none; }
+  .ticket--cumple { grid-column: 1 / -1; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 32px; padding: 26px 32px 26px 40px; }
+  .ticket--cumple .ticket__dato { grid-column: 1; grid-row: 1; }
+  .ticket--cumple h3 { grid-column: 1; grid-row: 2; }
+  .ticket--cumple p:not(.ticket__dato) { grid-column: 2; grid-row: 1 / span 2; max-width: 46ch; }
+  .ticket--cumple .btn { grid-column: 3; grid-row: 1 / span 2; margin: 0; }
+}
 @media (min-width: 1100px) and (hover: hover) {
   .plato__mini { cursor: default; }
 }

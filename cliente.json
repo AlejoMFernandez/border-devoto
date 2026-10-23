@@ -28,7 +28,7 @@
   "fuentes": {
    "titulos": "'Shantell Sans', system-ui, sans-serif",
    "texto": "'Poppins', system-ui, sans-serif",
-   "googleFonts": "Shantell+Sans:wght@600;800&family=Poppins:wght@400;500;600"
+   "googleFonts": ""
   },
   "estilo": {
    "forma": "redondeada",

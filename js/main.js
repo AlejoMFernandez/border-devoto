@@ -44,11 +44,14 @@ if (html.classList.contains('con-intro')) {
     heroImg.complete ? 0 : new Promise(r => { heroImg.addEventListener('load', r, { once: true }); heroImg.addEventListener('error', r, { once: true }); }),
     document.fonts ? document.fonts.ready : 0,
   ]);
-  const minimo = innerWidth < 900 ? 1250 : 1900;
-  const t0 = performance.now();
-  Promise.race([listo, new Promise(r => setTimeout(r, 2600))]).then(() => {
-    const falta = Math.max(0, minimo - (performance.now() - t0));
-    setTimeout(() => html.classList.add('intro-lista'), falta);
+  // el cartel se prende recién con la fuente cargada; desde ahí dura lo que tiene que durar
+  const minimo = innerWidth < 900 ? 1350 : 1750;
+  (window.__fuente || Promise.resolve()).then(() => {
+    const t0 = performance.now();
+    Promise.race([listo, new Promise(r => setTimeout(r, 2600))]).then(() => {
+      const falta = Math.max(0, minimo - (performance.now() - t0));
+      setTimeout(() => html.classList.add('intro-lista'), falta);
+    });
   });
   setTimeout(entrar, 5200);
 } else entrar();
@@ -282,33 +285,49 @@ document.addEventListener('kit:reserva', (e) => {
 
 /* ---------- filas deslizables también con el mouse ---------- */
 function arrastrable(fila) {
-  let x0 = 0, s0 = 0, mov = false, activo = false;
-  fila.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse' || e.button !== 0) return; activo = true; mov = false; x0 = e.clientX; s0 = fila.scrollLeft; });
-  addEventListener('pointermove', (e) => {
-    if (!activo) return; const dx = e.clientX - x0;
-    if (!mov && Math.abs(dx) > 6) { mov = true; fila.classList.add('arrastrando'); }
-    if (mov) fila.scrollLeft = s0 - dx;
+  // arrastre con mouse: sigue al cursor cuadro a cuadro, conserva la inercia al soltar y recién ahí vuelve el snap
+  let x0 = 0, s0 = 0, mov = false, activo = false, raf = 0, dx = 0, vel = 0, lastX = 0, lastT = 0, id = 0;
+  const desliza = () => fila.scrollWidth > fila.clientWidth + 4;
+  fila.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0 || !desliza()) return;
+    activo = true; mov = false; x0 = lastX = e.clientX; lastT = performance.now(); s0 = fila.scrollLeft; vel = 0; id = e.pointerId;
   });
-  addEventListener('pointerup', () => {
+  fila.addEventListener('pointermove', (e) => {
+    if (!activo) return;
+    dx = e.clientX - x0;
+    if (!mov && Math.abs(dx) > 5) { mov = true; fila.classList.add('arrastrando'); try { fila.setPointerCapture(id); } catch (_) { /* nada */ } }
+    if (!mov) return;
+    const t = performance.now(); vel = 0.8 * ((e.clientX - lastX) / Math.max(1, t - lastT)) + 0.2 * vel; lastX = e.clientX; lastT = t;
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; fila.scrollLeft = s0 - dx; });
+  });
+  const soltar = () => {
     if (!activo) return; activo = false;
-    if (mov) {
-      fila.classList.remove('arrastrando');
-      const cards = Array.from(fila.children); const pad = parseFloat(getComputedStyle(fila).paddingLeft) || 0;
-      const near = cards.reduce((b, c) => Math.abs(c.offsetLeft - pad - fila.scrollLeft) < Math.abs(b.offsetLeft - pad - fila.scrollLeft) ? c : b, cards[0]);
-      fila.scrollTo({ left: near.offsetLeft - pad, behavior: 'smooth' });
-      const stop = (ev) => { ev.stopPropagation(); ev.preventDefault(); }; fila.addEventListener('click', stop, { capture: true, once: true }); setTimeout(() => fila.removeEventListener('click', stop, { capture: true }), 50);
-    }
-  });
+    if (!mov) return;
+    const cards = Array.from(fila.children); const pad = parseFloat(getComputedStyle(fila).scrollPaddingLeft) || parseFloat(getComputedStyle(fila).paddingLeft) || 0;
+    const objetivo = fila.scrollLeft - vel * 220; // proyecta la inercia
+    const near = cards.reduce((b, c) => Math.abs(c.offsetLeft - pad - objetivo) < Math.abs(b.offsetLeft - pad - objetivo) ? c : b, cards[0]);
+    fila.scrollTo({ left: near.offsetLeft - pad, behavior: reduce ? 'auto' : 'smooth' });
+    let listo = false;
+    const fin = () => { if (listo) return; listo = true; fila.classList.remove('arrastrando'); };
+    fila.addEventListener('scrollend', fin, { once: true }); setTimeout(fin, 650);
+    const stop = (ev) => { ev.stopPropagation(); ev.preventDefault(); }; fila.addEventListener('click', stop, { capture: true, once: true }); setTimeout(() => fila.removeEventListener('click', stop, { capture: true }), 60);
+  };
+  fila.addEventListener('pointerup', soltar); fila.addEventListener('pointercancel', soltar);
+  fila.addEventListener('dragstart', (e) => e.preventDefault());
 }
 arrastrable($('#filaAgenda'));
 
-/* ---------- USTEDES: mazo de fotos ---------- */
+/* ---------- USTEDES: mazo en el celu, galería desplegada desde tablet ---------- */
 (() => {
   const mazo = $('#mazo'); if (!mazo) return;
-  let cartas = $$('.carta-foto', mazo); const total = cartas.length; let vistas = 0;
+  const todas = $$('.carta-foto', mazo);
+  let cartas = todas.slice(); const total = cartas.length; let vistas = 0;
   const rots = [-4, 3, -2, 5, -5, 2, -3];
+  const galeria = matchMedia('(min-width: 768px)');
+  todas.forEach((c, i) => c.style.setProperty('--k', i));
   function acomodar() {
-    cartas.forEach((c, i) => { c.style.zIndex = String(total - i); c.style.setProperty('--r', (i === 0 ? 0 : rots[i % rots.length]) + 'deg'); c.style.transform = ''; c.setAttribute('aria-hidden', String(i !== 0)); });
+    if (galeria.matches) { todas.forEach(c => { c.style.zIndex = ''; c.style.transform = ''; c.removeAttribute('aria-hidden'); c.tabIndex = 0; c.setAttribute('role', 'button'); }); return; }
+    cartas.forEach((c, i) => { c.removeAttribute('role'); c.tabIndex = -1; c.style.zIndex = String(total - i); c.style.setProperty('--r', (i === 0 ? 0 : rots[i % rots.length]) + 'deg'); c.style.transform = ''; c.setAttribute('aria-hidden', String(i !== 0)); });
     $('#mazoN').textContent = `${(vistas % total) + 1} / ${total}`;
   }
   function tirar(dir) {
@@ -316,15 +335,24 @@ arrastrable($('#filaAgenda'));
     c.classList.add('sale'); c.style.transform = `translateX(${dir * 130}%) rotate(${dir * 18}deg)`;
     setTimeout(() => { c.classList.remove('sale'); cartas.push(cartas.shift()); vistas++; c.style.transition = 'none'; acomodar(); void c.offsetWidth; c.style.transition = ''; }, 420);
   }
-  let x0 = 0, dx = 0, drag = null;
+  let x0 = 0, dx = 0, drag = null, raf = 0;
   mazo.addEventListener('pointerdown', (e) => {
+    if (galeria.matches) return;
     const c = e.target.closest('.carta-foto'); if (c !== cartas[0]) return;
     drag = c; x0 = e.clientX; dx = 0; c.classList.add('arrastra'); c.setPointerCapture(e.pointerId);
   });
-  mazo.addEventListener('pointermove', (e) => { if (!drag) return; dx = e.clientX - x0; drag.style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`; });
+  mazo.addEventListener('pointermove', (e) => {
+    if (!drag) return; dx = e.clientX - x0;
+    if (!raf) raf = requestAnimationFrame(() => { raf = 0; if (drag) drag.style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`; });
+  });
   const soltar = () => { if (!drag) return; const c = drag; drag = null; c.classList.remove('arrastra'); if (Math.abs(dx) > 80) tirar(Math.sign(dx)); else c.style.transform = ''; };
   mazo.addEventListener('pointerup', soltar); mazo.addEventListener('pointercancel', soltar);
   $('#mazoSig').addEventListener('click', () => tirar(1));
+  // galería: tocar una foto la abre grande
+  const abrirGrande = (c) => abrirFoto(c.querySelector('img').currentSrc || c.querySelector('img').src, c.querySelector('figcaption').textContent);
+  mazo.addEventListener('click', (e) => { if (!galeria.matches) return; const c = e.target.closest('.carta-foto'); if (c) abrirGrande(c); });
+  mazo.addEventListener('keydown', (e) => { if (!galeria.matches || (e.key !== 'Enter' && e.key !== ' ')) return; const c = e.target.closest('.carta-foto'); if (c) { e.preventDefault(); abrirGrande(c); } });
+  galeria.addEventListener('change', acomodar);
   acomodar();
 })();
 
