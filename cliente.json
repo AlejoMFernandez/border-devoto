@@ -2,6 +2,7 @@
  "$schema": "./docs/cliente.schema.json",
  "id": "border-devoto",
  "nombre": "Border",
+ "instagram": "borderdevoto",
  "pais": "AR",
  "idioma": "es",
  "modo": "demo",

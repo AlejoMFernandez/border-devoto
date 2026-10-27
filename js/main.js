@@ -1,6 +1,6 @@
 // BORDER · demo. De día se escribe, de noche se prende.
-import { initKit } from '../kit/kit.js?v=1';
-import { toast, copiar } from '../kit/core/ui.js?v=1';
+import { initKit } from '../kit/kit.js?v=18';
+import { toast, copiar } from '../kit/core/ui.js?v=18';
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
